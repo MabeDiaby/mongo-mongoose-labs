@@ -8,14 +8,14 @@ For this lab, you will be using some of the mongoose commands that you learned t
 
 Utilize the following resources to research the commands you will need:
 
-- Your notes from today
-- [Mongoose Documentation](https://mongoosejs.com/docs/guide.html)
-- Google to find Stack Overflow articles and more
+- Your notes from today.
+- [Mongoose Documentation](https://mongoosejs.com/docs/guide.html).
+- Google to find Stack Overflow articles and more.
 
 # Setup
 
-1. Navigate to this directory in terminal and `npm i --save mongoose` to install `mongoose`
-1. Open the project in vscode, you'll be working with some starter code in the `models` folder and the `app.js` file
+1. Navigate to this directory in terminal and `npm i --save mongoose` to install `mongoose`.
+1. Open the project in vscode, you'll be working with some starter code in the `models` folder and the `app.js` file.
 
 # What is a schema?
 
@@ -55,9 +55,9 @@ var vampire = {
 }
 ```
 
-1. Build a vampire **schema** and **model** that matches the object above inside the `models/vampires.js` file
+1. Build a vampire **schema** and **model** that matches the object above inside the `models/vampires.js` file.
 
-1. Go to the Mongoose documentation to learn more about validations and defaults: http://mongoosejs.com/docs/api.html
+1. Go to the Mongoose documentation to learn more about validations and defaults: http://mongoosejs.com/docs/api.html.
 
 1. The **name field is required**, so make sure that the schema accommodates for that.
 
@@ -80,7 +80,7 @@ Vampire.insertMany(seedData, (err, vampires) => {
   if (err) {
     console.log(err);
   }
-  console.log("added provided vampire data", vampires);
+  console.log('added provided vampire data', vampires);
   mongoose.connection.close();
 });
 ```
@@ -97,44 +97,46 @@ Vampire.insertMany(seedData, (err, vampires) => {
 
 Write a different query for each of the following:
 
-1. Find all the vampires that that are females
-2. have greater than 500 victims
-3. have fewer than or equal to 150 victims
-4. have a victim count is not equal to 210234
-5. have greater than 150 AND fewer than 500 victims
+1. Find all the vampires that that are females.
+2. Have greater than 500 victims.
+3. Have fewer than or equal to 150 victims.
+4. Have a victim count is not equal to 210234.
+5. Have greater than 150 AND fewer than 500 victims.
 
 ### Select by exists or does not exist
 
 Select all the vampires that:
 
-1. have a key of 'title'
-2. do not have a key of 'victims'
-3. have a title AND no victims
-4. have victims AND the victims they have are greater than 1000
+1. Have a key of 'title'.
+2. Do not have a key of 'victims'.
+3. Have a title AND no victims.
+4. Have victims AND the victims they have are greater than 1000.
 
 ### Select with OR
 
 Select all the vampires that:
 
-1. are from New York, New York, US or New Orleans, Louisiana, US
-2. love brooding or being tragic
-3. have more than 1000 victims or love marshmallows
-4. have red hair or green eyes
+1. Are from New York, New York, US or New Orleans, Louisiana, US.
+2. Love brooding or being tragic.
+3. Have more than 1000 victims or love marshmallows.
+4. Have red hair or green eyes.
 
 ### Before you continue on to part two, you should know that Mongoose has some sweet helper functions that can make all this a little easier. See below.
 
-Mongoose's default find gives you an array of objects.  But what if you know you only want one object?  These convenience methods just give you one object without the usual array surrounding it.
+Mongoose's default find gives you an array of objects. But what if you know you only want one object? These convenience methods just give you one object without the usual array surrounding it.
 
 ```javascript
-Article.findById('5757191bce5579b805705900', (err, article)=>{
+Article.findById('5757191bce5579b805705900', (err, article) => {
   console.log(article);
 });
 ```
+
 ```javascript
-Article.findOne({ author : 'Matt' }, (err, article)=>{
+Article.findOne({ author: 'Matt' }, (err, article) => {
   console.log(article);
 });
 ```
+
 ```javascript
 Article.findByIdAndUpdate(
   '5757191bce5579b805705900', // id of what to update
@@ -145,6 +147,7 @@ Article.findByIdAndUpdate(
   });
 });
 ```
+
 ```javascript
 Article.findOneAndUpdate(
   { author: 'Matt' }, // search criteria of what to update
@@ -155,14 +158,15 @@ Article.findOneAndUpdate(
   });
 });
 ```
+
 ```javascript
-Article.findByIdAndRemove('5757191bce5579b805705900', (err, article)=>{
+Article.findByIdAndRemove('5757191bce5579b805705900', (err, article) => {
   console.log(article); // log article that was removed
 });
 ```
-```javascript
 
-Article.findOneAndRemove({ author : 'Matt' }, (err, article)=>{
+```javascript
+Article.findOneAndRemove({ author: 'Matt' }, (err, article) => {
   console.log(article); // log article that was removed
 });
 ```
@@ -171,32 +175,32 @@ Article.findOneAndRemove({ author : 'Matt' }, (err, article)=>{
 
 Select all the vampires that:
 
-1. love either frilly shirtsleeves or frilly collars
-2. love brooding
-3. love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music
+1. Love either frilly shirtsleeves or frilly collars.
+2. Love brooding.
+3. Love at least one of the following: appearing innocent, trickery, lurking in rotting mansions, R&B music.
 
 ### Negative Selection
 
 Select all vampires that:
 
-1. love ribbons but do not have brown eyes
-2. are not from Rome
-3. do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding]
-4. have not killed more than 200 people
+1. Love ribbons but do not have brown eyes.
+2. Are not from Rome.
+3. Do not love any of the following: [fancy cloaks, frilly shirtsleeves, appearing innocent, being tragic, brooding].
+4. Have not killed more than 200 people.
 
 ## Replace
 
-1. replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'
-2. replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'
+1. Replace the vampire called 'Claudia' with a vampire called 'Eve'. 'Eve' will have a key called 'portrayed_by' with the value 'Tilda Swinton'.
+2. Replace the first male vampire with another whose name is 'Guy Man', and who has a key 'is_actually' with the value 'were-lizard'.
 
 ## Update
 
-1. Update 'Eve' to have a gender of 'm'
-2. Rename 'Eve's' name field to 'moniker'
+1. Update 'Eve' to have a gender of 'm'.
+2. Rename 'Eve's' name field to 'moniker'.
 3. We now no longer want to categorize female gender as "f", but rather as **fems**. Update all females so that the they are of gender "fems".
 
 ## Remove
 
-1. Remove a single document wherein the hair_color is 'brown'
+1. Remove a single document wherein the hair_color is 'brown'.
 2. We found out that the vampires with the blue eyes were just fakes! Let's remove all the vampires who have blue eyes from our database.
    <hr>
